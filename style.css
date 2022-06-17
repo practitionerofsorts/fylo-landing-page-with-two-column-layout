@@ -5,9 +5,6 @@
 .attribution a { 
     color: hsl(228, 45%, 44%); 
 }
-/*     font-family: 'Open Sans', sans-serif;
-
-    font-family: 'Raleway', sans-serif; */
 *{
     margin: 0;
     padding: 0;
@@ -25,6 +22,9 @@
 body{
     font-family: 'Raleway', sans-serif;
     background-color: var(--Light-Grayish-Blue);
+    background: url('/images/bg-curve-mobile.svg') no-repeat;
+    background-size: contain;
+    background-position: bottom 0 top 500px;
 }
 
 nav,
@@ -60,23 +60,27 @@ main{
 nav{
     display: flex;
     justify-content: space-between;
-    margin: 2em;
+    padding: 2em;
 }
 .nav__logo{
-    width: 80px;
+    width: initial;
 
 }
 nav ul{
     list-style: none;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     width: 11em;
 }
 
 /* -----------section1 ------------*/
 .section1{
-    padding: 1em;
+    padding: 2em;
     text-align: center;
+}
+.section1__img{
+    margin: 2em 0;
 }
 .section1 h1{
     margin-bottom: 1em;
@@ -97,8 +101,11 @@ nav ul{
 
 /* --------------section2 ------------*/
 .section2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 1em;
-   
 }
 .section2__img{
     margin: 6em 0;
@@ -119,6 +126,7 @@ nav ul{
     text-align: center;
     position: relative;
     margin-top: 2em;
+    margin-bottom: 2em;
 }
 .link::after{
     content: "";
@@ -141,14 +149,14 @@ nav ul{
     width: 15px;
 }
 .testimonial{
-    margin: 3em 1.5em;
+    margin: 2em;
     padding: 1.5em;
     padding-bottom: calc(10%*9/16);
-    max-width: 50%;
+    max-width: 330px;
     background-color: white;
     border: 1px solid white;
     border-radius: .25em;
-    box-shadow: -webkit-box-shadow: 0px 0px 17px -9px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 0px 17px -9px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 17px -9px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 17px -9px rgba(0,0,0,0.75);;
 }
@@ -237,6 +245,11 @@ footer ul{
     color: var(--Bright-Blue);
     cursor: pointer;
 }
+.media{
+    display: flex;
+    gap: .5em;
+    justify-content: center;
+}
 .media-facebook,
 .media-twitter,
 .media-instagram{
@@ -260,20 +273,29 @@ footer ul{
     transition: .3s ease;
 }
 
-/*---------------------media queries ------------------------*/
+/*---------------------media queries----------------------*/
 @media (min-width:900px){
+    nav{
+        padding: 2em 4em;
+        padding-bottom: 0em;
+    }
     body{
         min-height: 100vh;
         background: url('/images/bg-curve-desktop.svg') no-repeat;
         background-size: contain;
-        background-position: top 50%;
+        background-position: top 0 left 0;
         
     }
     .section1{
         display: flex;
+        gap: 3em;
         flex-direction: row-reverse;
         align-items: center;
         text-align: start;
+        padding: 4em;
+    }
+    .section1__img{
+        margin: 0em 0;
     }
     .section1__input{
         width: 70%;
@@ -285,20 +307,18 @@ footer ul{
         display: flex;
         gap: 1em;
     }
-    .section1__info{
-        /* padding: 3em; */
-        width: ;
-    }
+    /*--------------------------section2-------------*/
     .section2{
         display: grid;
+        padding: 4em;
         grid-template-areas:
          "one two"
          "three two"
          "five two"
-
     }
     .section2__img{
         grid-area: two;
+        margin: 0em 0;
     }
     .section2__info--centered{
         text-align: start;
@@ -310,14 +330,19 @@ footer ul{
         justify-content: start;
         text-align: start;
         position: relative;
-        margin-top: 2em;
+        margin-top: 0em;
+    }
+    .testimonial{
+        margin: 0em 0em;
     }
 
-    /*---------------enquiry*/
+    /*----------------------enquiry---------------------*/
     .enquiry{
         display: flex;
         gap: 17%;
         text-align: start;
+        padding: 3em 4em;
+        line-height: 1.5em;
     }
     .enquiry div{
         width: 50%;
@@ -327,12 +352,51 @@ footer ul{
     }
     .enquiry__p{
         margin: 0em;
-        margin-bottom: 1.5em;
+        margin-bottom: 0em;
     }
     .enquiry__input{
         width: 100%;
     }
     .enquiry__btn{
         width: 160px;
+    }
+
+
+    /*------------------footer----------------*/
+    footer{
+        padding: 2em 4em;
+        font-size: 16px;
+        display: grid;
+        grid-template-areas:
+        "one one one one"
+        "two three four five"
+        "six seven eight nine"
+    }
+    .footerlogo{
+        grid-area: one;
+        width: initial;
+        margin: 2em 0;
+        filter: brightness(0) invert(1);
+    }
+    .phone, .email{
+        margin-bottom: 0.5em;
+
+    }
+    .contact,.about{
+        margin: 0em 0;
+        margin-top: 0em;
+    }
+    .media{
+        width: initial;
+    }
+    .media-facebook,
+    .media-twitter,
+    .media-instagram{
+    height: 2rem;
+}
+}
+@media (max-width:420px){
+    .nav__logo{
+        width: 30%;
     }
 }
